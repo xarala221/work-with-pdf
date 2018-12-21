@@ -16,7 +16,8 @@ Make sure you have python and pip install in your machine
 
 Clone the repository
 ```sh
-git clone https://github.com/xarala221/work-with-pdf.git
+$ git clone https://github.com/xarala221/work-with-pdf.git
+$ cd work-with-pdf
 ```
 Install the dependencies
 
