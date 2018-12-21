@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+{% load static %}
+{% load i18n %}
+<html>
+     <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <!-- Tell the browser to be responsive to screen width -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="description" content="">
+            <meta name="author" content="">
+            <!-- Favicon icon -->
+            <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon.png">
+        
+         <title>Generer un pdf</title>
+
+        
+
+
+         {% block style_base %}
+        
+
+        {% block layout_style %}
+            <style type="text/css">
+              body {
+                font-weight: 200;
+                font-size: 14px;
+             }
+             .header {
+              font-size: 20px;
+              font-weight: 100;
+              text-align: center;
+              color: #007cae;
+          }
+          .text-right{
+            text-align: right
+          }
+          .text-left{
+            text-align: left;
+          }
+          .text-center{
+            text-align: center;
+          }
+          .bold{
+           
+            font-weight: bold;
+        }
+        .details {
+            padding: 5px 20px 0px 20px;
+            text-align: left !important;
+            /*margin-left: 40%;*/
+        }
+      
+ 
+                @page {
+                    size: {{ pagesize|default:"A4" }};
+                    margin-left: 2.5cm;
+                    margin-right: 2.5cm;
+                    margin-top: 2.5cm;
+                    margin-bottom: 5cm;
+                    @frame header {
+                        -pdf-frame-content: page-header;
+                        margin-top: 0cm;
+                        margin-right: 2mm;
+                        margin-bottom: 0cm;
+                        margin-left: 1.2cm;
+                    }
+                    @frame footer {
+                        -pdf-frame-content: page-footer;
+                        bottom: 0cm;
+                        margin-left: 1cm;
+                        margin-right: 1.5cm;
+                        height: 4cm;
+                    }
+                }
+                
+            </style>
+        {%endblock%}
+        {% block extra_style %}{% endblock %}
+    {% endblock %}
+     </head>
+     <body>
+         <div class="wrapper">
+            {%block page_header%}
+        <div class="header" style="padding-top:-90px;">
+            <h1>Logo</h1>
+        </div>
+        {%endblock%}
+         <div>
+         <div class="details">
+            <div class="container-fluid">
+
+                <div class="col-lg-12 col-md-12">
+                    <div class="card">
+                        
+                        <div class="card-body">
+                            
+                          <p>
+                            <b>Liste des utilisateurs</b> <br>
+                            {% for user in users %}
+                              <b>ID : {{ user.id }}</b> | <b>Utilisateur : {{ user }}</b>
+                            {% endfor %}
+                          </p>
+    
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            
+             <hr class="hrItem" />
+         </div>
+     </div>
+
+     <div id="page-footer">
+        {%block page_foot%}
+                
+                
+
+                <strong>
+                    mstspr1155@gmail.com
+                </strong>
+                
+        {%endblock%}
+    </div>
+    </div>
+     </body>
+ </html>
