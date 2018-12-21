@@ -4,6 +4,7 @@ Complete Django application using html2pdf librairy
 
 ### Version
 python => 3.7
+
 django => 2.1.4
 
 ## Usage
@@ -27,7 +28,7 @@ Run the migration
 ```sh
 $ python manage.py migrate
 ```
-
+Run the app
 ```sh
 $ python manage.py runserver
 ```
