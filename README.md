@@ -1,6 +1,6 @@
-# Working with pdf app
+# Working with pdf and xls
 
-Complete Django application using html2pdf librairy
+Complete Django application using html2pdf and xlwt librairies
 
 ### Version
 python => 3.7
